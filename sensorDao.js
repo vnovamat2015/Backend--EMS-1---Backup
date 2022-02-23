@@ -5,7 +5,7 @@ class SensorDao {
     constructor() {
         this.connectionFactory = new ConnectionFactory(); 
     }
-  // get('/tipos-sensores')
+  // get('sensores')
     listaSensores(callback) {
                 this.connectionFactory.getConnection(function(err, connection) {
             if(err){
@@ -13,12 +13,12 @@ class SensorDao {
                     connection.release();
                 callback(err);
             } else {
-                connection.query(`select id,nome  from tipoSensor`, [], function(err, tipossensores) {
+                connection.query(`select id,idTipoSensor,coordenadas, numSerie  from sensores`, [], function(err, sensores) {
                     connection.release();
                     if(err) {
                         callback(err);
                     } else {
-                        callback(err, tipossensores);
+                        callback(err, sensores);
                     }
                 });
             }

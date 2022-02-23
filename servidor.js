@@ -8,9 +8,9 @@ app.use(bodyParser.json())
 app.use(cors())
 
 
-const sensoresController = require('./sensoresController.js');
+const sensorController = require('./SensorController.js');
 
-app.use('/',sensoresController)
+app.use('/',sensorController)
 
 app.listen(port, () => {
 

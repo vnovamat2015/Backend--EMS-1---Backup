@@ -1,14 +1,14 @@
-const dao = require ('./sensoresDao.js')
-const { SensoresDao } = require('./sensoresDao.js')
+const dao = require ('./sensorDao.js')
+const { SensorDao } = require('./sensorDao.js')
 
 exports.sensorEncontrado = function(idsensor,callback){
-   sensoresDao.sensorEncontrado(idsensor,callback)
+   SensorDao.sensorEncontrado(idsensor,callback)
 }
  // get sensores
 exports.todosSensores = function(callback){
-sensoresDao.listaSensores(callback)
+SensorDao.listaSensores(callback)
 }
-/*
+
 // post sensores
 exports.cadastrarSensor = (sensor,callback) => {
   tipoSensorDao.cadastrarSensor(sensor,callback) 
@@ -41,17 +41,17 @@ exports.excluirSensor = (id,callback) => {
     }
   });
 }
-*/
+
  exports.todosTiposSensores = async function (){
   const resultado = await TipoSensor.findAll();
  console.log('ESTOU SERVICE',resultado )
   return resultado.map(item => item.dat)
  }
 
-const sensoresDao = new sensoresDao();
+const sensorDao = new SensorDao();
 
 exports.todosTiposSensores = function(callback) {
-	sensoresDao.listAll(callback);
+	SensorDao.listAll(callback);
 }
 
 

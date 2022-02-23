@@ -1,7 +1,7 @@
 const express = require('express');
-const { listaSensores } = require('./sensoresDao');
+const { listaSensores } = require('./SensorDao');
 const router = express.Router()
-const service = require('./service')
+const service = require('./SensorService')
 
 router.get('/sensores', (req, res) => {
     service.todosSensores((erro,sensores)=>{
