@@ -1,5 +1,5 @@
-const dao = require ('./sensorDao.js')
-const { SensorDao } = require('./sensorDao.js')
+const dao = require ('./SensorDao.js')
+const { SensorDao } = require('./SensorDao.js')
 
 exports.sensorEncontrado = function(idsensor,callback){
    SensorDao.sensorEncontrado(idsensor,callback)

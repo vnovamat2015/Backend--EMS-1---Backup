@@ -1,10 +1,10 @@
 const express = require('express');
 const { listaSensores } = require('./SensorDao');
 const router = express.Router()
-const service = require('./SensorService')
+const SensorService = require('./SensorService')
 
 router.get('/sensores', (req, res) => {
-    service.todosSensores((erro,sensores)=>{
+    SensorService.todosSensores((erro,sensores)=>{
       if(erro)
         res.status(500).send(erro);
       else
