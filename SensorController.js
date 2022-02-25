@@ -16,7 +16,7 @@ router.get('/sensores', (req, res) => {
 });
 
 router.get('/sensores/:id', (req, res) => {
-     service.sensorEncontrado(req.params.id,(erro,sensor)=>{
+     SensorService.sensorEncontrado(req.params.id,(erro,sensor)=>{
         if(erro)
           res.status(500).send(erro);
         else if(sensor){
@@ -29,7 +29,7 @@ router.get('/sensores/:id', (req, res) => {
 });
 
 router.post('/sensores', (req, res) =>{
-    service.cadastrarSensor(req.body,erro =>{
+    SensorService.cadastrarSensor(req.body,erro =>{
         if(erro)
             res.status(500).send(erro);
         else
@@ -39,7 +39,7 @@ router.post('/sensores', (req, res) =>{
 });
 
 router.put('/sensores/:id',(req,res) =>{
-    service.atualizarSensor(req.params.id,req.body,err =>{
+    SensorService.atualizarSensor(req.params.id,req.body,err =>{
         if(err && err.status == 404)
          res.sendStatus(404);
         else  if(err && err.errno == 1451)
@@ -53,7 +53,7 @@ router.put('/sensores/:id',(req,res) =>{
 })  
 
 router.delete('/sensores/:id',(req,res) =>{
-    service.excluirSensor(req.params.id,(err) =>{
+    SensorService.excluirSensor(req.params.id,(err) =>{
         if(err && err.status == 404)
             res.status(404).send(err);
         else  if(err && err.errno == 1451)
@@ -64,16 +64,5 @@ router.delete('/sensores/:id',(req,res) =>{
             res.sendStatus(200);
     })
 })
-
-router.get('/tipos-sensores', async(req, res) => {
-     service.todosTiposSensores((error,dados) => {
-        if(error){
-            res.sendStatus(500);
-        } else {
-            res.json(dados);
-        }
-    })
-});
-
 module.exports =  router
     

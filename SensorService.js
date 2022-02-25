@@ -1,26 +1,26 @@
 const dao = require ('./SensorDao.js')
-const { SensorDao } = require('./SensorDao.js')
+const { SensorDao } = require('./sensorDao.js')
 
 exports.sensorEncontrado = function(idsensor,callback){
-   SensorDao.sensorEncontrado(idsensor,callback)
+   sensorDao.sensorEncontrado(idsensor,callback)
 }
  // get sensores
 exports.todosSensores = function(callback){
-SensorDao.listaSensores(callback)
+sensorDao.listaSensores(callback)
 }
 
 // post sensores
 exports.cadastrarSensor = (sensor,callback) => {
-  tipoSensorDao.cadastrarSensor(sensor,callback) 
+  sensorDao.cadastrarSensor(sensor,callback) 
 }
 //put sensores
 exports.atualizarSensor = (id,body,callback) => {
-  tipoSensorDao.sensorEncontrado(id,(err, sensor) => {
+  sensorDao.sensorEncontrado(id,(err, sensor) => {
     if(err){
         callback(err);
     } 
     else if(sensor){
-     tipoSensorDao.atualizarSensor(id,body,callback);
+     sensorDao.atualizarSensor(id,body,callback);
     }
       else {
         callback({status:404,message:'Sensor não encontrado.'})
@@ -30,11 +30,11 @@ exports.atualizarSensor = (id,body,callback) => {
 }
 // delet sensores
 exports.excluirSensor = (id,callback) => {
-  tipoSensorDao.sensorEncontrado(id,(err, sensor) => {
+  sensorDao.sensorEncontrado(id,(err, sensor) => {
     if(err){
         callback(err);
     } else if(sensor){
-      tipoSensorDao.excluirSensor(id, callback);
+      sensorDao.excluirSensor(id, callback);
     } else {
       callback({status:404,message:'Sensor não encontrado.'})
      // console.log(callback);
@@ -50,8 +50,7 @@ exports.excluirSensor = (id,callback) => {
 
 const sensorDao = new SensorDao();
 
-exports.todosTiposSensores = function(callback) {
-	SensorDao.listAll(callback);
-}
-
+// exports.todosTiposSensores = function(callback) {
+// 	sensorDao.listAll(callback);
+// }
 

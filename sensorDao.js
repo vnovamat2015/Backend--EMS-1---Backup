@@ -43,9 +43,62 @@ class SensorDao {
             }
         });
     }
+    cadastrarSensor(sensor, callback) {
+        this.connectionFactory.getConnection(function(err, connection) {
+            if(err) {
+                if(connection)
+                    connection.release();
+                callback(err);
+            } else {
+                connection.query('INSERT INTO sensores(id,idTipoSensor,coordenadas,numSerie) VALUES(?,?,?,?)', 
+				[sensor.id, sensor.idTipoSensor, sensor.coordenadas, sensor.numSerie],
+                function(errors) {
+                    connection.release();
+                    callback(errors);
+                });
+            }
+        });
+    }
+
+    atualizarSensor(id, sensor, callback) {
+        this.connectionFactory.getConnection(function(err, connection) {
+            if(err) {
+                if(connection)
+                    connection.release();
+                callback(err);
+
+            } else {
+                connection.query('UPDATE sensores SET idTipoSensor=?, coordenadas=?, numSerie=? WHERE id = ?', 
+				[sensor.idTipoSensor, sensor.coordenadas, sensor.numSerie, id],
+                function(errors) {
+                    connection.release();
+                    callback(errors);
+                });
+            }
+        });
+    }
+
+    excluirSensor(id, callback) {
+        this.connectionFactory.getConnection(function(err, connection) {
+            if(err) {
+                if(connection)
+                    connection.release();
+                callback(err);
+            } else {
+                connection.query('DELETE FROM sensores WHERE id = ?', 
+				[id],
+                function(errors) {
+                connection.release();
+                    callback(errors);
+                });
+            }
+        });
+    }
+};
+
 
 /// get tipos-sensores
-
+/*
 listAll(callback){
             this.connectionFactory.getConnection(function(err, connection) {
         if(err){
@@ -65,10 +118,6 @@ listAll(callback){
     })
 };
 }
-
-
-
-
-
+*/
 
 exports.SensorDao = SensorDao;
