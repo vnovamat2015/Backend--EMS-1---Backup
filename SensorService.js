@@ -41,16 +41,7 @@ exports.excluirSensor = (id,callback) => {
     }
   });
 }
-
- exports.todosTiposSensores = async function (){
-  const resultado = await TipoSensor.findAll();
- console.log('ESTOU SERVICE',resultado )
-  return resultado.map(item => item.dat)
- }
-
 const sensorDao = new SensorDao();
 
-// exports.todosTiposSensores = function(callback) {
-// 	sensorDao.listAll(callback);
-// }
+
 

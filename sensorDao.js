@@ -24,6 +24,7 @@ class SensorDao {
             }
         });
     }
+      // get('sensores/id')
     sensorEncontrado(id,callback) {
         
         this.connectionFactory.getConnection(function(err, connection) {
@@ -43,6 +44,7 @@ class SensorDao {
             }
         });
     }
+    //post('/sensores')
     cadastrarSensor(sensor, callback) {
         this.connectionFactory.getConnection(function(err, connection) {
             if(err) {
@@ -59,7 +61,7 @@ class SensorDao {
             }
         });
     }
-
+   // put('/sensores/:id')
     atualizarSensor(id, sensor, callback) {
         this.connectionFactory.getConnection(function(err, connection) {
             if(err) {
@@ -77,7 +79,7 @@ class SensorDao {
             }
         });
     }
-
+    //delete('/sensores/:id')
     excluirSensor(id, callback) {
         this.connectionFactory.getConnection(function(err, connection) {
             if(err) {
@@ -95,29 +97,5 @@ class SensorDao {
         });
     }
 };
-
-
-/// get tipos-sensores
-/*
-listAll(callback){
-            this.connectionFactory.getConnection(function(err, connection) {
-        if(err){
-            if(connection)
-                connection.release();
-            callback(err);
-        } else {
-            connection.query(`select id,nome`, [], function(err, dados) {
-                connection.release();
-                if(err) {
-                    callback(err);
-                } else {
-                    callback(err, dados);
-                }
-            });
-        }
-    })
-};
-}
-*/
 
 exports.SensorDao = SensorDao;

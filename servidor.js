@@ -9,8 +9,12 @@ app.use(cors())
 
 
 const sensorController = require('./SensorController.js');
+const tipoSensorController = require('./TipoSensorController.js');
+const logSensorController = require('./LogSensorController.js');
 
 app.use('/',sensorController)
+app.use('/',tipoSensorController)
+app.use('/',logSensorController)
 
 app.listen(port, () => {
 
