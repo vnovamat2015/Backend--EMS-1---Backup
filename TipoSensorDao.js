@@ -53,7 +53,7 @@ class TipoSensorDao {
                 connection.release();
             callback(err);
         } else {
-            connection.query('INSERT INTO tiposensor(id,nome) VALUES(?,?)', 
+            connection.query('INSERT INTO tipoSensor(id,nome) VALUES(?,?)', 
             [sensor.id, sensor.nome],
             function(errors) {
                 connection.release();

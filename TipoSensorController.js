@@ -1,10 +1,10 @@
 const express = require('express');
 const { listaSensores } = require('./TipoSensorDao');
 const router = express.Router()
-const tipoSensorService = require('./tipoSensorService')
+const TipoSensorService = require('./TipoSensorService')
 
 router.get('/tipos-sensores', (req, res) => {
-    tipoSensorService.todosSensores((erro,tiposSensores)=>{
+    TipoSensorService.todosSensores((erro,tiposSensores)=>{
       if(erro)
         res.status(500).send(erro);
       else
@@ -16,7 +16,7 @@ router.get('/tipos-sensores', (req, res) => {
 });
 
 router.get('/tipos-sensores/:id', (req, res) => {
-     tipoSensorService.sensorEncontrado(req.params.id,(erro,sensor)=>{
+     TipoSensorService.sensorEncontrado(req.params.id,(erro,sensor)=>{
         if(erro)
           res.status(500).send(erro);
         else if(sensor){
@@ -28,7 +28,7 @@ router.get('/tipos-sensores/:id', (req, res) => {
       })
 });
 router.post('/tipos-sensores', (req, res) =>{
-  tipoSensorService.cadastrarSensor(req.body,erro =>{
+  TipoSensorService.cadastrarSensor(req.body,erro =>{
    
       if(erro)
           res.status(500).send(erro);
@@ -42,7 +42,7 @@ router.post('/tipos-sensores', (req, res) =>{
 });
 
 router.put('/tipos-sensores/:id',(req,res) =>{
-  tipoSensorService.atualizarSensor(req.params.id,req.body,err =>{
+  TipoSensorService.atualizarSensor(req.params.id,req.body,err =>{
       if(err && err.status == 404)
        res.sendStatus(404);
       else  if(err && err.errno == 1451)
@@ -56,7 +56,7 @@ router.put('/tipos-sensores/:id',(req,res) =>{
 })  
 
 router.delete('/tipos-sensores/:id',(req,res) =>{
-  tipoSensorService.excluirSensor(req.params.id,(err) =>{
+  TipoSensorService.excluirSensor(req.params.id,(err) =>{
       if(err && err.status == 404)
           res.status(404).send(err);
       else  if(err && err.errno == 1451)

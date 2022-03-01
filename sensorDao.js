@@ -61,7 +61,7 @@ class SensorDao {
             }
         });
     }
-   // put('/sensores/:id')
+   // put('/log-sensores/:id')
     atualizarSensor(id, sensor, callback) {
         this.connectionFactory.getConnection(function(err, connection) {
             if(err) {
@@ -70,8 +70,8 @@ class SensorDao {
                 callback(err);
 
             } else {
-                connection.query('UPDATE sensores SET idTipoSensor=?, coordenadas=?, numSerie=? WHERE id = ?', 
-				[sensor.idTipoSensor, sensor.coordenadas, sensor.numSerie, id],
+                connection.query('UPDATE logsensores SET id=?, dataHora=?, idSensor=?, valor=? WHERE id = ?', 
+				[sensor.id, sensor.dataHora, sensor.idSensor, sensor.valor],
                 function(errors) {
                     connection.release();
                     callback(errors);

@@ -44,6 +44,63 @@ class LogSensorDao {
             }
         });
     }
-};
 
+
+//post('/sensores')
+cadastrarSensor(sensor, callback) {
+    this.connectionFactory.getConnection(function(err, connection) {
+        if(err) {
+            if(connection)
+                connection.release();
+            callback(err);
+        } else {
+            connection.query('INSERT INTO logsensores(id,dataHora,idSensor,valor) VALUES(?,?,?,?)', 
+            [sensor.id, sensor.dataHora, sensor.idSensor, sensor.valor],
+            function(errors) {
+                connection.release();
+                callback(errors);
+            });
+        }
+    });
+}
+
+  // put('/log-sensores/:id')
+  atualizarSensor(id, sensor, callback) {
+    this.connectionFactory.getConnection(function(err, connection) {
+        if(err) {
+            if(connection)
+                connection.release();
+            callback(err);
+
+        } else {
+            connection.query('UPDATE sensores SET idTipoSensor=?, coordenadas=?, numSerie=? WHERE id = ?', 
+            [sensor.idTipoSensor, sensor.coordenadas, sensor.numSerie, id],
+            function(errors) {
+                connection.release();
+                callback(errors);
+            });
+        }
+    });
+}
+ //delete('/log-sensores/:id')
+ excluirSensor(id, callback) {
+    this.connectionFactory.getConnection(function(err, connection) {
+        if(err) {
+            if(connection)
+                connection.release();
+            callback(err);
+        } else {
+            connection.query('DELETE FROM logsensores WHERE id = ?', 
+            [id],
+            function(errors) {
+            connection.release();
+                callback(errors);
+            });
+        }
+    });
+}
+
+
+
+};
     exports.LogSensorDao = LogSensorDao;
