@@ -22,7 +22,8 @@ router.get('/log-sensores/:id', (req, res) => {
         else if(sensor){
             res.json(sensor)
         } else{
-            res.sendStatus(404)
+          //  res.sendStatus(404)
+          res.status(404).send('Log não encontrado')
         }
         
       })
