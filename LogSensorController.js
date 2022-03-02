@@ -44,8 +44,8 @@ router.post('/log-sensores', (req, res) =>{
          res.sendStatus(404);
         else  if(err && err.errno == 1451)
          res.sendStatus(400);
-        else  if(err)
-         res.sendStatus(500);
+         else  if(err)
+          res.sendStatus(500);
         else
          res.sendStatus(200);
     })  
