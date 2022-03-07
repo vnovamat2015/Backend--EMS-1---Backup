@@ -73,7 +73,7 @@ atualizarSensor(id, sensor, callback) {
 
         } else {
             connection.query('UPDATE tiposensor SET id=?, nome=? WHERE id = ?', 
-            [sensor.id, sensor.nome],
+            [sensor.id, sensor.nome,id],
             function(errors) {
                 connection.release();
                 callback(errors);

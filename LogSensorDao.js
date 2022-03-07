@@ -46,7 +46,7 @@ class LogSensorDao {
     }
 
 
-//post('/sensores')
+//post('/log-sensores')
 cadastrarSensor(sensor, callback) {
     this.connectionFactory.getConnection(function(err, connection) {
         if(err) {
@@ -73,8 +73,8 @@ cadastrarSensor(sensor, callback) {
             callback(err);
 
         } else {
-            connection.query('UPDATE sensores SET idTipoSensor=?, coordenadas=?, numSerie=? WHERE id = ?', 
-            [sensor.idTipoSensor, sensor.coordenadas, sensor.numSerie, id],
+            connection.query('UPDATE logsensores SET id=?, dataHora=?, idSensor=?,valor=?, WHERE id = ?', 
+            [sensor.id, sensor.dataHora, sensor.idSensor,sensor.valor,id],
             function(errors) {
                 connection.release();
                 callback(errors);
