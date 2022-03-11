@@ -1,7 +1,6 @@
 const { ConnectionFactory } = require("./conectorFactor");
 
 class SensorDao {
-
     constructor() {
         this.connectionFactory = new ConnectionFactory(); 
     }
@@ -26,8 +25,7 @@ class SensorDao {
     }
       // get('sensores/id')
     sensorEncontrado(id,callback) {
-        
-        this.connectionFactory.getConnection(function(err, connection) {
+                this.connectionFactory.getConnection(function(err, connection) {
             if(err){
                 if(connection)
                     connection.release();
@@ -61,7 +59,7 @@ class SensorDao {
             }
         });
     }
-   // put('/log-sensores/:id')
+   // put('/sensores/:id')
     atualizarSensor(id, sensor, callback) {
         this.connectionFactory.getConnection(function(err, connection) {
             if(err) {
@@ -69,7 +67,7 @@ class SensorDao {
                     connection.release();
                 callback(err);
 
-            } else {/////UPDATE `ems-1`.`sensores` SET `numSerie` = '123' WHERE (`id` = '2');
+            } else {
                 connection.query('UPDATE sensores SET idTipoSensor=?, coordenadas=?, numSerie=? WHERE id = ?', 
 				[sensor.idTipoSensor, sensor.coordenadas, sensor.numSerie,id],
                 function(errors) {
@@ -97,5 +95,4 @@ class SensorDao {
         });
     }
 };
-
 exports.SensorDao = SensorDao;

@@ -28,17 +28,13 @@ router.get('/tipos-sensores/:id', (req, res) => {
       })
 });
 router.post('/tipos-sensores', (req, res) =>{
-  TipoSensorService.cadastrarSensor(req.body,erro =>{
+   TipoSensorService.cadastrarSensor(req.body,erro =>{
    
       if(erro)
           res.status(500).send(erro);
-      // else if(erro && erro.errno == 1048)
-      // //       res.sendStatus(1048)
-      // //         console.log(errno)
       else
           res.sendStatus(201);
-  });
-         
+  });     
 });
 
 router.put('/tipos-sensores/:id',(req,res) =>{
@@ -48,13 +44,11 @@ router.put('/tipos-sensores/:id',(req,res) =>{
       else  if(err && err.errno == 1451)
        res.sendStatus(400);
       else  if(err)
-        res.sendStatus(500);
-      else
+       res.sendStatus(500);
+      else 
        res.sendStatus(200);
   })
-  
 })  
-
 router.delete('/tipos-sensores/:id',(req,res) =>{
   TipoSensorService.excluirSensor(req.params.id,(err) =>{
       if(err && err.status == 404)
@@ -67,6 +61,4 @@ router.delete('/tipos-sensores/:id',(req,res) =>{
           res.sendStatus(200);
   })
 })
-
-
 module.exports =  router

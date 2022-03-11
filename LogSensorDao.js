@@ -73,8 +73,8 @@ cadastrarSensor(sensor, callback) {
             callback(err);
 
         } else {
-            connection.query('UPDATE logsensores SET id=?, dataHora=?, idSensor=?,valor=?, WHERE id = ?', 
-            [sensor.id, sensor.dataHora, sensor.idSensor,sensor.valor,id],
+            connection.query('UPDATE logsensores SET  dataHora=?, idSensor=?,valor=? WHERE (id = ?)', 
+            [sensor.dataHora, sensor.idSensor,sensor.valor,id],
             function(errors) {
                 connection.release();
                 callback(errors);
@@ -99,7 +99,6 @@ cadastrarSensor(sensor, callback) {
         }
     });
 }
-
 
 
 };
