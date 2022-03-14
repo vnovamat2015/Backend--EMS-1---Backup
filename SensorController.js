@@ -29,7 +29,7 @@ router.get('/sensores/:id', (req, res) => {
 });
 
 router.post('/sensores', (req, res) =>{
-    console.log(req.body)
+   
     SensorService.cadastrarSensor(req.body,erro =>{
         if(erro)
             res.status(500).send(erro);
