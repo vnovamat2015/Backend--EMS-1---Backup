@@ -5,7 +5,7 @@
  //Math.random(Math.random() * 3)
  //console.log(Math.floor(Math.random() * 3))
 
-// Para inclir o zero e o número aleatorio desejado; 
+// Para incluir o zero e o número aleatorio desejado; 
 // 1- no lugar do número aleatorio colocar um parentese 
 // 2- dentro subtrair de zero e somar + 1
 // 3- e fora do parentese somar + zero
@@ -21,4 +21,4 @@
    const tipoSensores=['chuva','temperatura','pressão','umidade']
    const getTipoSensor =()=>
     tipoSensores[getRandomInteregerInclusive(0,tipoSensores.length -1)]
-    console.log(getTipoSensor())},1000);
+    console.log(getTipoSensor())},100000);

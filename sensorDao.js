@@ -1,4 +1,6 @@
+const Pool = require("mysql/lib/Pool");
 const { ConnectionFactory } = require("./conectorFactor");
+
 
 class SensorDao {
     constructor() {
@@ -94,5 +96,6 @@ class SensorDao {
             }
         });
     }
+  
 };
 exports.SensorDao = SensorDao;
