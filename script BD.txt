@@ -14,5 +14,8 @@ values('10','4','35° 52'' 14" S 11° 10'' 01" W','235');
 
 create table logsensores(id int not null Primary key auto_increment ,dataHora datetime,idSensor int, valor double);
 insert into logsensores values ('6','2021-09-05 12:15', '4','90.8');
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ De acordo com Thelma Troise IOT,callback:é uma informação de engenharia de uma operadora exemplo AWND que opera 
+a rede Sigfox no Brasil.
 
 

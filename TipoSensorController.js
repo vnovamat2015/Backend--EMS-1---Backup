@@ -29,23 +29,23 @@ router.get('/tipos-sensores/:id', (req, res) => {
 });
 router.post('/tipos-sensores', (req, res) =>{
    TipoSensorService.cadastrarSensor(req.body,erro =>{
+    // setInterval(() => {
+    //   const getRandomInteregerInclusive = (min,max) =>
+    //    Math.floor(Math.random () * (max - min + 1 )) + min
+    //   const tipoSensores=[
+    //   {id:5,nome:'Abacaxi'},
+    //   { id:6,nome:'Laranja'},
+    //   { id:7,nome:'Limão'},
+    //   { id:8,nome:'Pera'}]
 
-    setInterval(() => {
-      const getRandomInteregerInclusive = (min,max) =>
-       Math.floor(Math.random () * (max - min + 1 )) + min
-      const tipoSensores=[
-      {id:5,nome:'Abacaxi'},
-      { id:6,nome:'Laranja'},
-      { id:7,nome:'Limão'},
-      { id:8,nome:'Pera'}]
-
-      const getTipoSensor =()=>
-       tipoSensores[getRandomInteregerInclusive(0,tipoSensores.length -1)]
-       console.log(getTipoSensor())},10000);
+    //   const getTipoSensorController =()=>
+    //    tipoSensores[getRandomInteregerInclusive(0,tipoSensores.length -1)]
+    //    console.log(getTipoSensorController())},2000);
       if(erro)
           res.status(500).send(erro);
       else
           res.sendStatus(201);
+   
   });     
 });
 

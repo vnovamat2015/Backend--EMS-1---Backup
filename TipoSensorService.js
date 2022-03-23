@@ -28,6 +28,7 @@ exports.atualizarSensor = (id,body,callback) => {
  }
 // delet tipos-sensores
 exports.excluirSensor = (id,callback) => {
+    
    tipoSensorDao.sensorEncontrado(id,(err, sensor) => {
      if(err){
          callback(err);

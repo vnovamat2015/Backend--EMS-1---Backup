@@ -36,8 +36,11 @@ router.post('/sensores', (req, res) =>{
         else
             res.sendStatus(201);
     });
-   
 });
+
+
+
+
 
 router.put('/sensores/:id',(req,res) =>{
     SensorService.atualizarSensor(req.params.id,req.body,err =>{
