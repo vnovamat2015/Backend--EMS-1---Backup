@@ -33,7 +33,7 @@ class LogSensorDao {
                     connection.release();
                 callback(err);
             } else {
-                connection.query(`select id,dataHora,idSensor, valor  from logsensores where id = ?`, [id], function(err, sensores) {
+                connection.query(`select id,dataHora,idSensor, valor  from losensores where id = ?`, [id], function(err, sensores) {
                     connection.release();
                     if(err) {
                         callback(err);
@@ -55,7 +55,7 @@ cadastrarSensor(sensor, callback) {
             callback(err);
         } else {
             connection.query('INSERT INTO logsensores(id,dataHora,idSensor,valor) VALUES(?,?,?,?)', 
-            [sensor.id, sensor.dataHora, sensor.idSensor, sensor.valor],
+            [sensor.id,sensor.dataHora, sensor.idSensor, sensor.valor],
             function(errors) {
                 connection.release();
                 callback(errors);

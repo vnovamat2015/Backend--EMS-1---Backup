@@ -22,13 +22,6 @@ request(options, function (error, response) {
 });
 };
 
-// var requestOptions = {
-//     method: 'DELETE',
-//     redirect: 'follow'
-//   };
-  
-//   fetch("localhost:2000/tipos-sensores/", requestOptions)
-//     .then(response => response.text())
-//     .then(result => console.log(result))
-//     .catch(error => console.log('error', error));
-// };
+// DROP EVENT : Exclui um evento com a declaração DROP EVENT.
+// Sintaxe: DROP EVENT [IF EXISTS] nome_evento;
+// 

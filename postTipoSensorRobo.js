@@ -18,14 +18,14 @@
 // através da variável tipoSensores = [], com as stringues dos sensores que evocam a função  getRandomInteregerInclusive
 // O console.log imprime a cada 1s os valores do array aleatoriamente
   
-n=69
+n=4
 setInterval(() => {
    const getRandomInteregerInclusive = (min,max) =>
     Math.floor(Math.random () * (max - min + 1 )) + min
    const tipoSensores=['chuva','temperatura','pressão','umidade']
    const getTipoSensorController =()=>
     tipoSensores[getRandomInteregerInclusive(0,tipoSensores.length -1)]
-    robo(n++,getTipoSensorController())},5000); 
+    robo(n++,getTipoSensorController())},3000); 
 
 
     function robo(a,b){
