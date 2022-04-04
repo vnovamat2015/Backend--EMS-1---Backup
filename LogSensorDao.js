@@ -54,13 +54,14 @@ cadastrarSensor(sensor, callback) {
                 connection.release();
             callback(err);
         } else {
-            connection.query('INSERT INTO logsensores(id,dataHora,idSensor,valor) VALUES(?,?,?,?)', 
-            [sensor.id,sensor.dataHora, sensor.idSensor, sensor.valor],
+            connection.query('INSERT INTO logrobozinho (dataHora,idSensor,valor) VALUES(?,?,?)', 
+            [sensor.dataHora, sensor.idSensor, sensor.valor],
             function(errors) {
                 connection.release();
                 callback(errors);
             });
         }
+        
     });
 }
 

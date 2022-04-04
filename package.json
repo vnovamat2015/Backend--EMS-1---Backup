@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "activities": "^1.1.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "modules": "^0.4.0",
