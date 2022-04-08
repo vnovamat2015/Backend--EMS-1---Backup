@@ -60,25 +60,25 @@
 // };
 /// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // Comando para criar um Array.
- let robo = []
- // Use Array.isArray() para verificar se um objeto é um array ou não.
-//  typeof(activities)
-//  "object"
-//  Array.isArray(activities);
-//  true
+ let activities = []
+// Use Array.isArray() para verificar se um objeto é um array ou não.
+ typeof(activities)
+ "object"
+ Array.isArray(activities);
+ true
 //O exemplo a seguir define um array bidimensional que vamos chamar de activities.
- robo = [['Work',9],['Eat',1],['Commute',2],['Play',1],['Sleep',7]];
+ activities = [['Work',9],['Eat',1],['Commute',2],['Play',1],['Sleep',7]];
 //Para mostrar o array activities no console, use o método console.table() da seguinte forma:
-    console.log(robo);
+    console.log(activities);
     
-// for(let i = 0; i< activities.length;i++){
-//     // get the size of the inner array
-//     var innerArrayLength = activities[i].length;
-//     // loop the inner array
-//     for (let j = 0; j < innerArrayLength; j++){
-//         console.log('[' + i +',' + j + ']) = ' + activities[i[j]]);
-//     }
-// }
+for(let i = 0; i< activities.length;i++){
+    // get the size of the inner array
+    var innerArrayLength = activities[i].length;
+    // loop the inner array
+    for (let j = 0; j < innerArrayLength; j++){
+        console.log('[' + i +',' + j + ']) = ' + activities[i[j]]);
+    }
+}
 
 
 
