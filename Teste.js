@@ -60,25 +60,55 @@
 // };
 /// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 // Comando para criar um Array.
- let activities = []
-// Use Array.isArray() para verificar se um objeto é um array ou não.
- typeof(activities)
- "object"
- Array.isArray(activities);
- true
-//O exemplo a seguir define um array bidimensional que vamos chamar de activities.
- activities = [['Work',9],['Eat',1],['Commute',2],['Play',1],['Sleep',7]];
-//Para mostrar o array activities no console, use o método console.table() da seguinte forma:
-    console.log(activities);
+//  let activities = []
+// // Use Array.isArray() para verificar se um objeto é um array ou não.
+//  typeof(activities)
+//  "object"
+//  Array.isArray(activities);
+//  true
+// //O exemplo a seguir define um array bidimensional que vamos chamar de activities.
+//  activities = [['Work',9],['Eat',1],['Commute',2],['Play',1],['Sleep',7]];
+// //Para mostrar o array activities no console, use o método console.table() da seguinte forma:
+//     console.log(activities);
     
-for(let i = 0; i< activities.length;i++){
-    // get the size of the inner array
-    var innerArrayLength = activities[i].length;
-    // loop the inner array
-    for (let j = 0; j < innerArrayLength; j++){
-        console.log('[' + i +',' + j + ']) = ' + activities[i[j]]);
-    }
-}
+// for(let i = 0; i< activities.length;i++){
+//     // get the size of the inner array
+//     var innerArrayLength = activities[i].length;
+//     // loop the inner array
+//     for (let j = 0; j < innerArrayLength; j++){
+//         console.log('[' + i +',' + j + ']) = ' + activities[i[j]]);
+//     }
+// }
+// const today =  Date()
+//     console.log(today)
+////////////////////////////////////
+var timestamp = new Date()
+console.log(timestamp)
+// 2022-04-13T01:30:38.452Z
+var timestamp = Date()
+console.log(timestamp)
+// Tue Apr 12 2022 22:30:38 GMT-0300 (Horário Padrão de Brasília)
+var datetime = new Date();
+console.log(datetime);
+// 2022-04-13T01:30:38.470Z
+var datetime = Date();
+console.log(datetime);
+//Tue Apr 12 2022 22:30:38 GMT-0300 (Horário Padrão de Brasília)
+///////////////////////////////////
+
+var agora = now()
+console.log(agora)
+
+// var dataInicio = new Date();
+// console.log("Data de inicio new Date() = " + dataInicio);
+// setTimeout(function(){ 
+//     var dataTermino = new Date(); 
+//     var diferencaTempo = dataTermino.getTime() - dataInicio.getTime();
+//     console.log("Data de término new Date() = " + dataTermino);
+//     console.log("Diferença de tempo = " + diferencaTempo);
+// }, 5000);
 
 
+// var dataParse = Date.parse ("2022-04-10");
+// console.log(dataParse);
 
